@@ -1,7 +1,6 @@
 package br.ufrn.imd.gestaofinanceiro.modelo.dtos;
 
 import br.ufrn.imd.gestaofinanceiro.modelo.enums.Categoria;
-import br.ufrn.imd.gestaofinanceiro.modelo.enums.TipoPagamento;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
@@ -27,9 +26,6 @@ public class ContaResquestDTO {
 
     @NotNull
     private Categoria categoria;
-
-    @NotNull
-    private TipoPagamento tipoPagamento;
 
     private Boolean recorrente;
 
