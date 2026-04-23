@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import ufrn.imd.eventos.domain.entidades.Evento;
 import ufrn.imd.eventos.domain.entidades.Participante;
 import ufrn.imd.eventos.domain.entidades.dto.EventoParticipanteDTO;
+import ufrn.imd.eventos.repository.EventoRepository;
+import ufrn.imd.eventos.repository.ParticipanteRepository;
 
 @Service
 public class ParticipanteService {

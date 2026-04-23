@@ -1,10 +1,7 @@
 package ufrn.imd.eventos.domain.mongo;
 
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -13,6 +10,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 public class AuditLog {
 
     @Id

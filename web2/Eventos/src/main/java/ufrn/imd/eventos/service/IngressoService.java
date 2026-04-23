@@ -5,6 +5,8 @@ import ufrn.imd.eventos.domain.entidades.Evento;
 import ufrn.imd.eventos.domain.entidades.Ingresso;
 import ufrn.imd.eventos.domain.entidades.dto.request.IngressoRequestDTO;
 import ufrn.imd.eventos.domain.entidades.dto.response.IngressoResponseDTO;
+import ufrn.imd.eventos.repository.EventoRepository;
+import ufrn.imd.eventos.repository.IngressoRepository;
 
 import static ufrn.imd.eventos.mapper.EventoMapper.toDTO;
 
@@ -32,6 +34,15 @@ public class IngressoService {
         ingresso.setTipo(dto.getTipo());
         ingresso.setEvento(evento);
 
-        return toDTO(repository.save(ingresso));
+        Ingresso res = repository.save(ingresso);
+        return toDTO(ingresso);
+
+    }
+    private IngressoResponseDTO toDTO(Ingresso ingresso) {
+        IngressoResponseDTO dto = new IngressoResponseDTO();
+        dto.setId(ingresso.getId());
+        dto.setValor(ingresso.getValor());
+        dto.setTipo(ingresso.getTipo());
+        return dto;
     }
 }
