@@ -1,12 +1,18 @@
 package ufrn.imd.eventos.domain.entidades;
 
 import jakarta.persistence.*;
+import lombok.*;
 import ufrn.imd.eventos.domain.enums.TipoIngresso;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ingressos")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Ingresso {
 
     @Id

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "organizadores")
+@Table(name = "participantes")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Organizador {
+public class Participante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,7 @@ public class Organizador {
 
     private String email;
 
-    @OneToMany(mappedBy = "organizador")
+    @ManyToMany(mappedBy = "participantes")
     private List<Evento> eventos = new ArrayList<>();
 }
+
