@@ -1,0 +1,632 @@
+{
+  "info": {
+    "_postman_id": "a35c548c-d7ab-4399-88ee-885fd672dedf",
+    "name": "ppgti",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48398180",
+    "_collection_link": "https://go.postman.co/collection/48398180-a35c548c-d7ab-4399-88ee-885fd672dedf?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "web2-gestao-financeira",
+      "item": [
+        {
+          "name": "New Folder",
+          "item": []
+        },
+        {
+          "name": "criar conta",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/*\r\n{\r\n  \"descricao\": \"Assinatura Netflix\",\r\n  \"valor\": 55.90,\r\n  \"dataVencimento\": \"2026-05-10\",\r\n  \"categoria\": \"LAZER\",\r\n  \"recorrente\": true\r\n}\r\n\r\n\r\n{\r\n  \"descricao\": \"Energia Eletrica\",\r\n  \"valor\": 120.90,\r\n  \"dataVencimento\": \"2026-05-15\",\r\n  \"categoria\": \"LUZ\",\r\n  \"recorrente\": true\r\n}\r\n\r\n*/",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/contas",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "listar",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/*\r\n{\r\n  \"descricao\": \"Assinatura Netflix\",\r\n  \"valor\": 55.90,\r\n  \"dataVencimento\": \"2026-05-10\",\r\n  \"categoria\": \"LAZER\",\r\n  \"recorrente\": true\r\n}\r\n\r\n\r\n{\r\n  \"descricao\": \"Energia Eletrica\",\r\n  \"valor\": 120.90,\r\n  \"dataVencimento\": \"2026-05-15\",\r\n  \"categoria\": \"LUZ\",\r\n  \"recorrente\": true\r\n}\r\n\r\n*/",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/contas",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lbuscar por id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/*\r\n{\r\n  \"descricao\": \"Assinatura Netflix\",\r\n  \"valor\": 55.90,\r\n  \"dataVencimento\": \"2026-05-10\",\r\n  \"categoria\": \"LAZER\",\r\n  \"recorrente\": true\r\n}\r\n\r\n\r\n{\r\n  \"descricao\": \"Energia Eletrica\",\r\n  \"valor\": 120.90,\r\n  \"dataVencimento\": \"2026-05-15\",\r\n  \"categoria\": \"LUZ\",\r\n  \"recorrente\": true\r\n}\r\n\r\n*/",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/contas/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "remover",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/*\r\n{\r\n  \"descricao\": \"Assinatura Netflix\",\r\n  \"valor\": 55.90,\r\n  \"dataVencimento\": \"2026-05-10\",\r\n  \"categoria\": \"LAZER\",\r\n  \"recorrente\": true\r\n}\r\n\r\n\r\n{\r\n  \"descricao\": \"Energia Eletrica\",\r\n  \"valor\": 120.90,\r\n  \"dataVencimento\": \"2026-05-15\",\r\n  \"categoria\": \"LUZ\",\r\n  \"recorrente\": true\r\n}\r\n\r\n*/",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/contas/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contas",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "pagar conta",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/*\r\n{\r\n  \"descricao\": \"Assinatura Netflix\",\r\n  \"valor\": 55.90,\r\n  \"dataVencimento\": \"2026-05-10\",\r\n  \"categoria\": \"LAZER\",\r\n  \"recorrente\": true\r\n}\r\n\r\n\r\n{\r\n  \"descricao\": \"Energia Eletrica\",\r\n  \"valor\": 120.90,\r\n  \"dataVencimento\": \"2026-05-15\",\r\n  \"categoria\": \"LUZ\",\r\n  \"recorrente\": true\r\n}\r\n\r\n*/",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/contas/1/pagar",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contas",
+                "1",
+                "pagar"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Eventos",
+      "item": [
+        {
+          "name": "organizador",
+          "item": [
+            {
+              "name": "criar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"João\",\r\n  \"email\": \"joao@email.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/organizadores",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "organizadores"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"João\",\r\n  \"email\": \"joao@email.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/organizadores",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "organizadores"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar por nome",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"João\",\r\n  \"email\": \"joao@email.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/organizadores/buscar?nome=João",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "organizadores",
+                    "buscar"
+                  ],
+                  "query": [
+                    {
+                      "key": "nome",
+                      "value": "João"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "eventos",
+          "item": [
+            {
+              "name": "logs",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"DTI confra\",\r\n  \"local\": \"Natal\",\r\n  \"dataEvento\": \"2026-05-10T10:00:00\",\r\n  \"capacidade\": 40,\r\n  \"organizadorId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/logs",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "logs"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "criar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"DTI confra\",\r\n  \"local\": \"Natal\",\r\n  \"dataEvento\": \"2026-05-10T10:00:00\",\r\n  \"capacidade\": 40,\r\n  \"organizadorId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/eventos",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "eventos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"DTI confra\",\r\n  \"local\": \"Natal\",\r\n  \"dataEvento\": \"2026-05-10T10:00:00\",\r\n  \"capacidade\": 40,\r\n  \"organizadorId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/eventos",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "eventos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar por id",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"DTI confra\",\r\n  \"local\": \"Natal\",\r\n  \"dataEvento\": \"2026-05-10T10:00:00\",\r\n  \"capacidade\": 40,\r\n  \"organizadorId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/eventos/1",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "eventos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar por participantes",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"DTI confra\",\r\n  \"local\": \"Natal\",\r\n  \"dataEvento\": \"2026-05-10T10:00:00\",\r\n  \"capacidade\": 40,\r\n  \"organizadorId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/eventos/buscar?nome=DTI",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "eventos",
+                    "buscar"
+                  ],
+                  "query": [
+                    {
+                      "key": "nome",
+                      "value": "DTI"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "atualizar",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"DTI confra\",\r\n  \"local\": \"Apodi kkk\",\r\n  \"dataEvento\": \"2026-05-10T10:00:00\",\r\n  \"capacidade\": 40,\r\n  \"organizadorId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/eventos/1",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "eventos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "participante",
+          "item": [
+            {
+              "name": "listar",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:8080/participantes",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "participantes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "cadastrar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"Marlus\",\r\n  \"email\": \"marlus@imd.ufrn.br\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/participantes",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "participantes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "cadastrar no evento",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nome\": \"Marlus\",\r\n  \"email\": \"marlus@imd.ufrn.br\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/participantes",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "participantes"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Ingresso",
+          "item": [
+            {
+              "name": "CRIAR",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"valor\": 150.00,\r\n  \"tipo\": \"INTEIRA\",\r\n  \"eventoId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/ingressos",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ingressos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"valor\": 150.00,\r\n  \"tipo\": \"INTEIRA\",\r\n  \"eventoId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/ingressos",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ingressos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listar por tipo",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"valor\": 150.00,\r\n  \"tipo\": \"INTEIRA\",\r\n  \"eventoId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/ingressos",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ingressos"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 package ufrn.imd.eventos.domain.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import ufrn.imd.eventos.domain.enums.TipoIngresso;
@@ -24,6 +25,7 @@ public class Ingresso {
     @Enumerated(EnumType.STRING)
     private TipoIngresso tipo;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "evento_id")
     private Evento evento;

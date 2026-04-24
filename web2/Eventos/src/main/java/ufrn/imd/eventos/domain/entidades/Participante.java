@@ -1,5 +1,6 @@
 package ufrn.imd.eventos.domain.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ public class Participante {
 
     private String email;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "participantes")
     private List<Evento> eventos = new ArrayList<>();
 }
