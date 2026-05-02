@@ -6,8 +6,12 @@ import org.springframework.web.bind.annotation.*;
 import ufrn.imd.eventos.domain.entidades.Evento;
 import ufrn.imd.eventos.domain.entidades.dto.request.EventoRequestDTO;
 import ufrn.imd.eventos.domain.entidades.dto.response.EventoResponseDTO;
+import ufrn.imd.eventos.mapper.EventoMapper;
 import ufrn.imd.eventos.repository.EventoRepository;
 import ufrn.imd.eventos.service.EventoService;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -22,40 +26,49 @@ public class EventoController {
         this.service = service;
         this.repository = repository;
     }
+    @GetMapping("/info")
+    public ResponseEntity<String> info() {
+        return ResponseEntity.ok("API de Gestão de Eventos - Público");
+    }
+
+    @PreAuthorize("hasRole('MASTER')")
     @PostMapping
     public ResponseEntity<EventoResponseDTO> criar(
             @Valid @RequestBody EventoRequestDTO dto) {
-        return ResponseEntity.ok(service.criar(dto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(dto));
     }
 
+    @PreAuthorize("hasAnyRole('MASTER', 'CONTRIBUTOR', 'AUDITOR')")
     @GetMapping
-    public ResponseEntity<List<Evento>> listar() {
-        return ResponseEntity.ok(repository.findAll());
+    public ResponseEntity<List<EventoResponseDTO>> listar() {
+        return ResponseEntity.ok(EventoMapper.toDTOList(repository.findAll()));
     }
 
+    @PreAuthorize("hasAnyRole('MASTER', 'CONTRIBUTOR', 'AUDITOR')")
     @GetMapping("/{id}")
-    public ResponseEntity<Evento> buscarPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(
-                repository.findById(id)
-                        .orElseThrow(() -> new RuntimeException("Evento não encontrado"))
-        );
+    public ResponseEntity<EventoResponseDTO> buscarPorId(@PathVariable Long id) {
+        Evento evento = repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Evento não encontrado"));
+        return ResponseEntity.ok(EventoMapper.toDTO(evento));
     }
 
+    @PreAuthorize("hasAnyRole('MASTER', 'CONTRIBUTOR')")
     @PutMapping("/{id}")
-    public ResponseEntity<Evento> atualizar(
+    public ResponseEntity<EventoResponseDTO> atualizar(
             @PathVariable Long id,
             @Valid @RequestBody EventoRequestDTO dto) {
 
-        Evento evento = repository.findById(id).orElseThrow();
+        Evento evento = repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Evento não encontrado"));
 
         evento.setNome(dto.getNome());
         evento.setLocal(dto.getLocal());
         evento.setDataEvento(dto.getDataEvento());
         evento.setCapacidade(dto.getCapacidade());
 
-        return ResponseEntity.ok(repository.save(evento));
+        return ResponseEntity.ok(EventoMapper.toDTO(repository.save(evento)));
     }
 
+    @PreAuthorize("hasRole('MASTER')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         repository.deleteById(id);

@@ -1,7 +1,9 @@
 package ufrn.imd.eventos.controller;
 
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ufrn.imd.eventos.domain.entidades.Participante;
 import ufrn.imd.eventos.domain.entidades.dto.EventoParticipanteDTO;
@@ -25,6 +27,7 @@ public class ParticipanteController {
         this.service = service;
     }
 
+    @PreAuthorize("hasRole('MASTER')")
     @PostMapping
     public ResponseEntity<Participante> criar(
             @Valid @RequestBody ParticipanteRequestDTO dto) {
@@ -33,14 +36,16 @@ public class ParticipanteController {
         p.setNome(dto.getNome());
         p.setEmail(dto.getEmail());
 
-        return ResponseEntity.ok(repository.save(p));
+        return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(p));
     }
 
+    @PreAuthorize("hasAnyRole('MASTER', 'CONTRIBUTOR')")
     @GetMapping
     public ResponseEntity<List<Participante>> listar() {
         return ResponseEntity.ok(repository.findAll());
     }
 
+    @PreAuthorize("hasRole('MASTER')")
     @PostMapping("/adicionar")
     public ResponseEntity<Void> adicionarNoEvento(
             @Valid @RequestBody EventoParticipanteDTO dto) {

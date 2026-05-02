@@ -4,6 +4,7 @@ import ufrn.imd.eventos.domain.entidades.Evento;
 import ufrn.imd.eventos.domain.entidades.Organizador;
 import ufrn.imd.eventos.domain.entidades.dto.request.EventoRequestDTO;
 import ufrn.imd.eventos.domain.entidades.dto.response.EventoResponseDTO;
+import java.util.List;
 
 public class EventoMapper {
 
@@ -25,5 +26,9 @@ public class EventoMapper {
         dto.setDataEvento(evento.getDataEvento());
         dto.setCapacidade(evento.getCapacidade());
         return dto;
+    }
+
+    public static List<EventoResponseDTO> toDTOList(List<Evento> eventos) {
+        return eventos.stream().map(EventoMapper::toDTO).toList();
     }
 }
